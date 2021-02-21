@@ -1,5 +1,5 @@
-export interface ViewerDimensionType {
-  dims: {
+export interface WindowDimensionType {
+  windowDims: {
     fullWidth: number;
     fullHeight: number;
     halfWidth: number;
@@ -9,8 +9,8 @@ export interface ViewerDimensionType {
   };
 }
 
-export interface ComponentDimensionType {
-  dims: {
+export interface RefDimsType {
+  refDims: {
     fullWidth: number;
     fullHeight: number;
     halfWidth: number;
@@ -19,12 +19,3 @@ export interface ComponentDimensionType {
     quarterHeight: number;
   };
 }
-
-export interface CompatibleDimChild {
-  current: {
-    offsetWidth: number;
-    offsetHeight: number;
-  };
-}
-
-export interface DimChild<T extends CompatibleDimChild> {}

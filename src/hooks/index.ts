@@ -1,2 +1,2 @@
-export {useWindowDims} from "./useWindowDims"
-export {useComponentDims} from "./useComponentDims"
+export { useWindowDims } from "./useWindowDims";
+export { useRefDims } from "./useRefDims";

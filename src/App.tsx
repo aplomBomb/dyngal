@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { useWindowDims } from "./hooks";
 
 export const App = () => {
-  const { dims } = useWindowDims(window);
-  const appContainerRef = useRef<React.RefObject>();
+  const appContainerRef = useRef<HTMLDivElement>();
+  const { windowDims } = useWindowDims(window);
+  // const { refDims } = useRefDims(appContainerRef);
 
   useEffect(() => {
-    if (appContainerRef.current !== null) {
-      console.log(`refCurrent details: ${appContainerRef.current.offsetWidth}`);
-    }
-  }, [appContainerRef]);
+    console.log(`${windowDims.halfWidth}x${windowDims.halfHeight}`);
+  }, [windowDims]);
 
   return (
     // <AppContainer className="App" ref={} width={dims.fullWidth} height={dims.fullHeight}>
@@ -18,9 +17,9 @@ export const App = () => {
     // </AppContainer>
 
     <AppContainer
-      ref={appContainerRef}
-      width={dims.fullWidth}
-      height={dims.fullHeight}
+      // ref={appContainerRef}
+      width={windowDims.halfWidth}
+      height={windowDims.halfHeight}
     ></AppContainer>
   );
 };
@@ -36,5 +35,5 @@ const AppContainer = styled.div<{ width: number; height: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: #36393e;
 `;
