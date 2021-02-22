@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { WindowDimensionType } from "./hooktypes";
 
-export const useWindowDims = (window: Window): WindowDimensionType => {
+export const useWindowDims = ({innerWidth, innerHeight}: Window): WindowDimensionType => {
   let dimSettings = useCallback(
     () => ({
-      fullWidth: window.innerWidth,
-      fullHeight: window.innerHeight,
-      halfWidth: Math.round(window.innerWidth / 2),
-      halfHeight: Math.round(window.innerHeight / 2),
-      quarterWidth: Math.round(window.innerWidth / 4),
-      quarterHeight: Math.round(window.innerHeight / 4),
+      fullWidth: innerWidth,
+      fullHeight: innerHeight,
+      halfWidth: Math.round(innerWidth / 2),
+      halfHeight: Math.round(innerHeight / 2),
+      quarterWidth: Math.round(innerWidth / 4),
+      quarterHeight: Math.round(innerHeight / 4),
     }),
     [window.innerWidth, window.innerHeight]
   );
