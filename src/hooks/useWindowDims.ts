@@ -1,8 +1,20 @@
-import { useState, useEffect, useCallback } from "react";
-import { WindowDimensionType } from "./hooktypes";
+import { useState, useLayoutEffect, useCallback } from "react";
 
+export interface WindowDimensionType {
+  windowDims: {
+    fullWidth: number;
+    fullHeight: number;
+    halfWidth: number;
+    halfHeight: number;
+    quarterWidth: number;
+    quarterHeight: number;
+  };
+}
+
+// This hook accepts a Window object, and spits out its dimensions in different tiers as it changes
 export const useWindowDims = ({innerWidth, innerHeight}: Window): WindowDimensionType => {
-  let dimSettings = useCallback(
+  
+  const dimSettings = useCallback(
     () => ({
       fullWidth: innerWidth,
       fullHeight: innerHeight,
@@ -15,8 +27,8 @@ export const useWindowDims = ({innerWidth, innerHeight}: Window): WindowDimensio
   );
   let [windowDims, setWindowDims] = useState(dimSettings);
 
-  useEffect(() => {
-    const handleResize = (): any => {
+  useLayoutEffect(() => {
+    const handleResize = (): void => {
       setWindowDims(dimSettings);
     };
     window.addEventListener("resize", handleResize);
