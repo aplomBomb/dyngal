@@ -7,10 +7,6 @@ export const App = () => {
   const { windowDims } = useWindowDims(window);
   // const { refDims } = useRefDims(appContainerRef);
 
-  useEffect(() => {
-    console.log(`${windowDims.halfWidth}x${windowDims.halfHeight}`);
-  }, [windowDims]);
-
   return (
     // <AppContainer className="App" ref={} width={dims.fullWidth} height={dims.fullHeight}>
 
@@ -18,8 +14,8 @@ export const App = () => {
 
     <AppContainer
       // ref={appContainerRef}
-      width={windowDims.halfWidth}
-      height={windowDims.halfHeight}
+      width={windowDims.half.width}
+      height={windowDims.half.height}
     ></AppContainer>
   );
 };
