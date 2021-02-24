@@ -17,7 +17,8 @@ export interface WindowDimensionType {
   };
 }
 
-// This hook accepts a Window object, and spits out its dimensions in different tiers as it changes
+// This hook accepts a Window object and spits
+// out its dimensions in different tiers as it changes
 export const useWindowDims = ({
   innerWidth,
   innerHeight,
@@ -37,7 +38,7 @@ export const useWindowDims = ({
         height: Math.round(innerHeight / 4),
       },
     }),
-    [window.innerWidth, window.innerHeight]
+    [innerWidth, innerHeight]
   );
   let [windowDims, setWindowDims] = useState(dimSettings);
 
@@ -49,7 +50,7 @@ export const useWindowDims = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [dimSettings, window]);
+  }, [dimSettings]);
 
   return {
     windowDims,
